@@ -18,22 +18,28 @@
 </head>
 <body>
 
+<video autoplay muted loop playsinline class="bg-video">
+    <source src="./video/mixkit-ink-swirling-in-blue-tones-underwater-229-4k.mp4" type="video/mp4">
+</video>
+
 <header>
     <nav class="navbar">
-        <a href="#" class="logo" id="home">Home</a>
+        <div class="container nav-inner">
+            <a href="#" class="logo" id="home">Home</a>
 
-        <!-- Botão menu mobile -->
-        <button class="menu-toggle" aria-label="Abrir menu">
-            <i class="fa-solid fa-bars"></i>
-        </button>
+            <!-- Botão menu mobile -->
+            <button class="menu-toggle" aria-label="Abrir menu">
+                <i class="fa-solid fa-bars"></i>
+            </button>
 
-        <!-- Links desktop -->
-        <ul class="links_navbar">
-            <li><a href="#">Habilidades</a></li>
-            <li><a href="#">Projetos</a></li>
-            <li><a href="#">Sobre</a></li>
-            <li><a href="#">Contato</a></li>
-        </ul>
+            <!-- Links desktop -->
+            <ul class="links_navbar">
+                <li><a href="#">Habilidades</a></li>
+                <li><a href="#">Projetos</a></li>
+                <li><a href="#">Sobre</a></li>
+                <li><a href="#">Contato</a></li>
+            </ul>
+        </div>
     </nav>
 </header>
 
@@ -50,40 +56,40 @@
     </ul>
 </aside>
 
-<!-- Sidebar mobile -->
-<aside class="sidebar" id="sidebar">
-    <button class="close-sidebar" aria-label="Fechar menu">
-        <i class="fa-solid fa-xmark"></i>
-    </button>
-    <ul>
-        <li><a href="#">Habilidades</a></li>
-        <li><a href="#">Projetos</a></li>
-        <li><a href="#">Sobre</a></li>
-        <li><a href="#">Contato</a></li>
-    </ul>
-</aside>
-
-
 <main>
-    <section class="Hero">
-        <h4 class="reveal">Olá, sou</h4>
-        <h1 class="reveal">Gabriel <br> Mourão</h1>
+    <div class="container">
+        <section class="Hero">
+            <div class="hero-text">
+                <h4 class="reveal">Olá, me chamo</h4>
+                <h1 class="reveal">Gabriel <br> Mourão</h1>
 
-        <div class="tarjas reveal">
-            <div class="tarja">UI/UX Designer</div>
-            <div class="tarja">Ilustrador</div>
-        </div>
+                <div class="tarjas reveal">
+                    <div class="tarja"><span>UI/UX Designer</span></div>
+                    <div class="tarja"><span>Ilustrador</span></div>
+                </div>
 
-        <a class="botao_download reveal"
-           href="./downloads/Currículo Gabriel Mourão UIUX Designer (1).pdf"
-           download>
-            <i class="fa-solid fa-download"></i>
-            Baixar currículo
-        </a>
-    </section>
+                <a class="botao_download reveal"
+                   href="./downloads/Currículo Gabriel Mourão UIUX Designer (1).pdf"
+                   download>
+                    <i class="fa-solid fa-download"></i>
+                    Baixar currículo
+                </a>
+            </div>
+        </section>
+    </div>
+    <div class="container" id="slide">
+        <section class="logoslide">
+            <img src="./logos/Adobe_Illustrator_CC_icon.svg.png" alt="">
+            <img src="./logos/Adobe_InDesign_CC_icon.svg.png" alt="">
+            <img src="./logos/CSS-Logo-2011.png" alt="">
+            <img src="./logos/figma_logo_icon_171159.webp" alt="">
+            <img src="./logos/HTML5_logo_and_wordmark.svg.png" alt="">
+            <img src="./logos/javascript-logo-javascript-icon-transparent-free-png.webp" alt="">
+        </section>
+    </div>
+
 </main>
 
-<!-- JS NO FINAL -->
 <script src="script.js"></script>
 </body>
 </html>

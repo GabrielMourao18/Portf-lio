@@ -14,6 +14,26 @@ body {
     background-attachment: fixed;
 }
 
+.bg-video {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    z-index: -1;
+}
+
+/* ========================= */
+/* ===== CONTAINER ========= */
+/* ========================= */
+.container {
+    width: 100%;
+    max-width: 1200px;   /* 👈 largura fixa do layout */
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
 /* Links */
 a {
     text-decoration: none;
@@ -25,24 +45,36 @@ a:hover {
     opacity: 0.7;
 }
 
-/* Navbar */
+/* ========================= */
+/* ===== NAVBAR ============ */
+/* ========================= */
 .navbar {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    padding: 20px 164px;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
 
     backdrop-filter: blur(10px);
     -webkit-backdrop-filter: blur(10px);
 
     background: linear-gradient(
         to bottom,
-        rgba(4, 31, 82, 0.8),
+        rgba(7, 111, 196, 0.8),
         rgba(4, 45, 110, 0)
     );
+    border-bottom: solid 1px #fff;
+
+    z-index: 1000;
 }
 
-#home{
+.nav-inner {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px 0;
+}
+
+#home {
     margin-right: 50px;
 }
 
@@ -70,25 +102,53 @@ a:hover {
     border-color: white;
 }
 
-/* Main */
+/* Logo */
+.logo {
+    color: white;
+    font-weight: 600;
+    border: 1px solid transparent;
+    border-radius: 20px;
+    transition: border-color 0.3s;
+    display: block;
+    padding: 10px 20px;
+}
+
+.logo:hover {
+    border-color: white;
+}
+
+/* Botão menu mobile */
+.menu-toggle {
+    display: none;
+    all: unset;
+    color: white;
+    font-size: 1.5rem;
+    cursor: pointer;
+}
+
+/* ========================= */
+/* ===== MAIN / HERO ======= */
+/* ========================= */
 main {
-    padding: 40px 164px;
+    padding-top: 140px; /* espaço da navbar fixa */
     color: white;
 }
 
 .Hero {
-    margin-top: 80px;
+    display: grid;
+    grid-template-columns: 1fr;
+    align-items: center;
+    min-height: 70vh;
 }
 
 .Hero h1 {
-    font-size: 7rem;
+    font-size: 9rem;
     font-family: "Bebas Neue", sans-serif;
-    line-height: 1;
+    line-height: 0.9;
 }
 
 .Hero h4 {
-    font-size: 5vh;
-    line-height: 1;
+    font-size: 2rem;
 }
 
 /* Botão download */
@@ -99,6 +159,10 @@ main {
     align-items: center;
     gap: 8px;
     margin-top: 16px;
+    background: white;
+    padding: 14px 20px;
+    border-radius: 20px;
+    color: #06356e;
 }
 
 /* Tarjas */
@@ -111,16 +175,15 @@ main {
 .tarja {
     padding: 12px 24px;
     border-radius: 12px;
-    border: 2px solid transparent;
-
-    background:
-        linear-gradient(transparent, transparent) padding-box,
-        linear-gradient(90deg, #00c6ff, #0072ff, #8a2be2) border-box;
-
-    color: white;
+    border: 2px solid #ffffff;
+    color: #ffffff;
+    font-size: 1.5rem;
 }
 
-/* Animação reveal */
+
+/* ========================= */
+/* ===== REVEAL ============ */
+/* ========================= */
 .reveal {
     opacity: 0;
     transform: translateY(40px);
@@ -132,22 +195,9 @@ main {
     transform: translateY(0);
 }
 
-/* Logo / Home */
-.logo {
-    color: white;
-    font-weight: 600;
-}
-
-/* Botão menu (mobile) */
-.menu-toggle {
-    display: none;
-    all: unset;
-    color: white;
-    font-size: 1.5rem;
-    cursor: pointer;
-}
-
-/* Sidebar */
+/* ========================= */
+/* ===== SIDEBAR =========== */
+/* ========================= */
 .sidebar {
     position: fixed;
     top: 0;
@@ -158,7 +208,7 @@ main {
     backdrop-filter: blur(10px);
     padding: 20px;
     transition: right 0.3s ease;
-    z-index: 999;
+    z-index: 9991;
 }
 
 .sidebar.active {
@@ -186,32 +236,36 @@ main {
 }
 
 /* ========================= */
-/* ===== RESPONSIVO ======= */
+/* ===== RESPONSIVO ======== */
 /* ========================= */
+@media (min-width: 768px){
+    .menu-toggle{
+        display: none;
+    }
+}
 
 @media (max-width: 768px) {
 
     .menu-toggle {
-        display: block; /* 🟢 APARECE só no mobile */
+        display: block;
+        margin-right: 20px;
     }
 
     .links_navbar {
-        display: none;  /* esconde links no mobile */
+        display: none;
     }
 
-    .navbar {
+    .nav-inner {
         justify-content: space-between;
-        padding: 20px 20px;
     }
 
-    /* Centraliza Hero */
     .Hero {
         text-align: center;
-        margin-top: 60px;
     }
 
     .Hero h1 {
-        font-size: 7rem;
+        font-size: 8rem;
+        line-height: 1;
     }
 
     .Hero h4 {
@@ -223,15 +277,22 @@ main {
         flex-wrap: wrap;
     }
 
-    main {
-        padding: 20px;
+    .tarja{
+        font-size: 1rem;
     }
 }
 
-.menu-toggle {
-    display: none;      /* 🔴 ESCONDIDO no desktop */
-    all: unset;
-    color: white;
-    font-size: 1.5rem;
-    cursor: pointer;
+/* Seção2 */
+.logoslide{
+    margin-top: 80px;
+    background: #06356e;
+}
+
+.logoslide img{
+    height: 80px;
+}
+
+#slide{
+    max-width: 32465px;
+
 }
